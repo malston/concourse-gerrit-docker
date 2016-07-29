@@ -30,5 +30,6 @@ concourse-worker:
 
 gerrit:
   image: gerritforge/gerrit-ubuntu15.04
-  ports: ["8090:8080", "29418:29418"]
-  volumes: ["./gerrit:/var/gerrit"]
+  links: [concourse-worker]
+  ports: ["8090:8090", "29418:29418"]
+  volumes: ["./gerrit/etc:/var/gerrit/etc"]
